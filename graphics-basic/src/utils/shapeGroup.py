@@ -1,6 +1,5 @@
-def shapeGroup(shape):
-    def shapeGroupInner(offset, side, amout, pos, handleShape):
-        for i in range(amout):
-            p = pos(side, i)
-            handleShape(shape, offset, side, i, p)
-    return shapeGroupInner
+def shape_group(shape):
+    def shape_group_inner(offset, side, amount, pos, handle_shape):
+        for i in range(amount):
+            handle_shape(shape, offset, side, i, pos(side, i))
+    return shape_group_inner

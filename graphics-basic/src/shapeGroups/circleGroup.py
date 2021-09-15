@@ -1,11 +1,11 @@
 from shapes.circle import circle
-from utils.shapeGroup import shapeGroup
+from utils.shapeGroup import shape_group
 
-def createCircleGroup(offset, size, amount):
-    circleShapeGroup = shapeGroup(circle)
+def create_circle_group(_offset, size, amount):
+    circle_shape_group = shape_group(circle)
 
-    return circleShapeGroup(
-        offset,
+    return circle_shape_group(
+        _offset,
         size,
         amount,
         lambda s, i: -(s * i) / 2,
