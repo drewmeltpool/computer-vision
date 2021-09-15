@@ -1,62 +1,55 @@
-import turtle
-import math
-from shapes.square import square
-from shapes.circle import circle
-from utils.shapeGroup import shapeGroup
+import turtle, math
+
+from shapeGroups.squareGroup import createSquareGroup
+from shapeGroups.circleGroup import createCircleGroup
+from utils.fiilPolygon import fillPolygon
+from utils.randomColor import colors
+
 
 window = turtle.Screen()
 
-squareGroup = shapeGroup(square)
-circleGroup = shapeGroup(circle)
+# 1 Task
 
-squareGroup(
-    [-200, 0],
-    50,
-    5,
-    lambda s, i: -(s * i) / 2,
-    lambda shape, offset, side, i, p:
-        shape(side * i, p + offset[0], p + offset[1])
-)
+# createSquareGroup([-200, 0], 50, 5)
+# createCircleGroup([200, 0], 25, 5)
 
-circleGroup(
-    [200, 0],
-    25,
-    5,
-    lambda s, i: -(s * i) / 2,
-    lambda shape, offset, side, i, p:
-        shape(side * i, offset[0], (-side * i) + offset[1])
-)
+# 2 Task
 
-# def createShape():
-#     return turtle.Turtle()
-#
-# def createPolygon(shape, lines, cb):
-#     cb(shape)
-#     for line in lines:
-#         shape.forward(line[0])
-#         shape.right(line[1])
-#     return shape
-#
-# def fill(shape, color, cb):
-#     shape.color(color, color)
-#     shape.begin_fill()
-#     cb(shape)
-#     shape.end_fill()
-#     return shape
-#
-# def polygon(lines, color, cb):
-#     return fill(createShape(), color, lambda s: createPolygon(s, lines, cb))
-#
-#
-# side = 200
-# radius = side * (math.sqrt(4 + 2 * math.sqrt(2)) / 2)
-#
-# def rotate(shape, angle):
-#     shape.right(angle)
-#
-# polygon([[radius, 112.5], [side, 112.5], [radius, 135]], 'red', lambda s: rotate(s, 0))
-# polygon([[radius, 112.5], [side, 112.5], [radius, 135]], 'green', lambda s: rotate(s, 90))
-# polygon([[radius, 112.5], [side, 112.5], [radius, 135]], 'blue', lambda s: rotate(s, 180))
-# polygon([[radius, 112.5], [side, 112.5], [radius, 135]], 'cyan', lambda s: rotate(s, 270))
+def rangeMap(range, cb):
+    array = []
+    for i in range:
+        array.append(cb(arr[i], i, range))
+
+    return array
+
+def octagonRadius (side):
+    return side * (math.sqrt(4 + 2 * math.sqrt(2)) / 2)
+
+def octagonAngle():
+    return 360 / 8
+
+def octagonSideAngle():
+    return (180 - octagonAngle()) / 2
+
+lenght = 4
+side = 200
+
+def default(shape, angle):
+    shape.right(angle)
+    shape.hideturtle()
+    shape.speed(0)
+
+for i in range(lenght):
+    angle = 360 / lenght
+    radius = octagonRadius(side)
+    fillPolygon(
+        [
+            [radius, octagonSideAngle()],
+            [side, octagonSideAngle()],
+            [radius, octagonAngle()]
+        ],
+        colors(i, lenght),
+        lambda s: default(s, i * angle - 45 / 2)
+    )
 
 window.mainloop()
