@@ -10,3 +10,16 @@ def range_map(len, _cb):
     )
 
     return array
+
+def foreach(arr, _cb):
+    for _i in range(len(arr)):
+        _cb(arr[_i], _i)
+
+def map(arr, _cb):
+    array = []
+    foreach(
+        arr,
+        lambda item, i: array.append(_cb(item, i))
+    )
+
+    return array
