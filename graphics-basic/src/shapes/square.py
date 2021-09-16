@@ -1,4 +1,5 @@
 import turtle;
+from utils.iterable import range_foreach
 
 def square(side, x = 0, y = 0):
     _square = turtle.Turtle()
@@ -7,6 +8,10 @@ def square(side, x = 0, y = 0):
     _square.up()
     _square.setpos(x, y)
     _square.down()
-    for _ in range(4):
-        _square.forward(side)
-        _square.left(90)
+    range_foreach(
+        4,
+        lambda _x,_y: (
+            _square.forward(side),
+            _square.left(90)
+        )
+    )
