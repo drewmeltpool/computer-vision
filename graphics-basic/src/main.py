@@ -43,14 +43,14 @@ def ordinate(arr, cb):
 # Закон ІІ. – y(x) = ((a + 3) * 0.01) * sin(x)
 # Закон ІІІ. – y(x) = (a * 0.01) * cos(x)
 
-
 x = abscissa(0, 100, 10000)
+y = lambda cb: ordinate(x, cb)
 
 plot = create_plot()
 
-add_plot(plot,[x, ordinate(x, lambda i: 3 * 0.01 * np.sin(i))])
-add_plot(plot,[x, ordinate(x, lambda i: 6 * 0.01 * np.sin(i))])
-add_plot(plot,[x, ordinate(x, lambda i: 3 * 0.01 * np.cos(i))])
+add_plot(plot,[x, y(lambda i: 3 * 0.01 * np.sin(i))])
+add_plot(plot,[x, y(lambda i: 6 * 0.01 * np.sin(i))])
+add_plot(plot,[x, y(lambda i: 3 * 0.01 * np.cos(i))])
 
 plot.show()
 
