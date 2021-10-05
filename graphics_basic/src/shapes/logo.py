@@ -1,7 +1,7 @@
 import math
 
-from graphics_basic.src.shapes.fillPolygon import fill_polygon
-from graphics_basic.src.utils.getColor import get_color
+from shapes.fillPolygon import fill_polygon
+from utils.getColor import get_color
 
 
 def octagon_radius(_side):

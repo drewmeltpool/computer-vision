@@ -13,7 +13,7 @@ window = turtle.Screen()
 
 # 1 Task
 create_square_group([-200, 0], 50, 5)
-create_circle_group([200, 0], 25, 5)
+create_circle_group([200, 0], 25, 15)
 
 # 2 Task
 octagon(4, 250)
@@ -22,7 +22,6 @@ window.mainloop()
 
 
 # 3 Task
-
 def create_plot():
     return plt
 

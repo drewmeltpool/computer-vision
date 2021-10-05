@@ -1,5 +1,5 @@
-from graphics_basic.src.shapes.square import square
-from graphics_basic.src.utils.shapeGroup import shape_group
+from shapes.square import square
+from utils.shapeGroup import shape_group
 
 
 def create_square_group(_offset, _size, _amount):

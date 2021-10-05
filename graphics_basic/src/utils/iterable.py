@@ -13,9 +13,9 @@ def range_map(len, _cb):
     return array
 
 
-def foreach(arr, _cb):
-    for _i in range(len(arr)):
-        _cb(arr[_i], _i)
+def foreach(arr, cb):
+    for i in range(len(arr)):
+        cb(arr[i], i)
 
 
 def map(arr, _cb):
@@ -26,3 +26,4 @@ def map(arr, _cb):
     )
 
     return array
+
